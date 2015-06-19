@@ -6,7 +6,8 @@ module.exports = function(app) {
 
   app.route('/users/:userId')
     .get(users.read)
-    .put(users.update);
+    .put(users.update)
+    .delete(users.delete);
 
   // fires and adds param 'userId' to req object
   // before all other routes are  called
