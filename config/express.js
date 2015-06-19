@@ -1,8 +1,8 @@
 var express = require('express');
 var morgan = require('morgan');
-var compress = require('compression');
-bodyParser = require('body-parser');
-methodOverride = require('method-override');
+var compress = require('compress');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 module.exports = function() {
   var app = express();
 
