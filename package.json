@@ -9,6 +9,7 @@
     "express-session": "^1.11.3",
     "method-override": "^2.3.3",
     "mongoose": "^4.0.5",
-    "morgan": "^1.6.0"
+    "morgan": "^1.6.0",
+    "passport": "^0.2.2"
   }
 }
