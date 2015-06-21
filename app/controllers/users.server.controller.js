@@ -14,9 +14,11 @@ var getErrorMessage = function(err) {
     }
   } else {
     for (var errName in err.errors) {
-      if (err.errors[errName].message) {
-        message = err.errors[errName].
-          message;
+      if (err.errors.hasOwnProperty(errName)) {
+        if (err.errors[errName].message) {
+          message = err.errors[errName].
+            message;
+        }
       }
     }
   }
@@ -32,6 +34,7 @@ exports.renderSignin = function(req, res, next) {
     return res.redirect('/');
   }
 };
+//noinspection JSUnusedLocalSymbols
 exports.renderSignup = function(req, res, next) {
   if (!req.user) {
     res.render('signup', {
@@ -45,6 +48,7 @@ exports.renderSignup = function(req, res, next) {
 exports.signup = function(req, res, next) {
   if (!req.user) {
     var user = new User(req.body);
+    //noinspection JSUnusedLocalSymbols
     var message = null;
     user.provider = 'local';
     user.save(function(err) {
