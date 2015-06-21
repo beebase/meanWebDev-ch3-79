@@ -2,6 +2,7 @@
   "name": "MEAN",
   "version": "0.0.3",
   "dependencies": {
+    "angular-route": "^1.4.1",
     "body-parser": "^1.13.1",
     "compress": "^0.99.0",
     "connect-flash": "^0.1.1",

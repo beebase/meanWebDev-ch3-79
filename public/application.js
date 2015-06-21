@@ -1,6 +1,7 @@
 var mainApplicationModuleName = 'mean';
 //noinspection JSUnusedGlobalSymbols
 var mainApplicationModule = angular.module(mainApplicationModuleName, [
+  'ngRoute',
   'example'
 ]);
 
