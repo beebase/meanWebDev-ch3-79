@@ -1,20 +1,31 @@
 <!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
 <html>
 <head>
 	<title><%= title %></title>
+	<script>
+		window.user = <%- user || 'null' %>;
+	</script>
+	<script src="/lib/angular/angular.js"></script>
+	<script src="/lib/angular-route/angular-route.js"></script>
+	<script src="/example/example.client.module.js"></script>
+	<script src="/example/config/example.client.routes.js"></script>
+	<script src="/example/controllers/example.client.controller.js"></script>
+	<script src="/userss/users.client.module.js"></script>
+	<script src="/userss/services/authentication.client.service.js"></script>
+	<script src="/application.js"></script>
 </head>
 <body>
-	<% if ( userFullName ) { %>
+	<% if ( user ) { %>
 	<h2>Hello <%= userFullName %> </h2>
 	<a href="/signout">Sign out</a>
 	<% } else { %>
 	<a href="/signup">Signup</a>
 	<a href="/signin">Signin</a>
 	<% } %>
-	<br>
-	<!--suppress HtmlUnknownTarget -->
-	<img src="img/logo.jpg" alt="Logo">
 
-	<h1><%= title %></h1>
+	<section ng-view></section>
+
+
 </body>
 </html>
