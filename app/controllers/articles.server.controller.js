@@ -22,6 +22,15 @@ exports.requiresLogin = function(req, res, next) {
   next();
 };
 
+exports.hasAuthorization = function(req, res, next) {
+  if (req.article.creator.id !== req.user.id) {
+    return res.status(403).send({
+      message: 'User is not authorized'
+    });
+  }
+  next();
+};
+
 exports.create = function(req, res) {
   var article = new Article(req.body);
   article.creator = req.user;
