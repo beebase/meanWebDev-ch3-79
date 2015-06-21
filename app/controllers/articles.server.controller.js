@@ -13,6 +13,15 @@ var getErrorMessage = function(err) {
   }
 };
 
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not logged in'
+    });
+  }
+  next();
+};
+
 exports.create = function(req, res) {
   var article = new Article(req.body);
   article.creator = req.user;
