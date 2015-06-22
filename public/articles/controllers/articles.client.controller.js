@@ -40,6 +40,7 @@ angular.module('articles')
 
     $scope.delete = function(article) {
       if (article) {
+        //list view
         article.$remove(function() {
           for (var i in $scope.articles) {
             if ($scope.articles[i] === article) {
@@ -48,6 +49,7 @@ angular.module('articles')
           }
         });
       } else {
+        //detail view
         $scope.article.$remove(function() {
           $location.path('articles');
         });
