@@ -1,6 +1,15 @@
 var User = require('mongoose').model('User');
 var passport = require('passport');
 
+exports.requiresLogin = function(req, res, next) {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send({
+      message: 'User is not logged in'
+    });
+  }
+  next();
+};
+
 var getErrorMessage = function(err) {
   var message = '';
   if (err.code) {
