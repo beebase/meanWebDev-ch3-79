@@ -21,13 +21,6 @@
 	<script src="/application.js"></script>
 </head>
 <body>
-	<% if ( user ) { %>
-	<h2>Hello <%= userFullName %> </h2>
-	<a href="/signout">Sign out</a>
-	<% } else { %>
-	<a href="/signup">Signup</a>
-	<a href="/signin">Signin</a>
-	<% } %>
 
 	<section ng-view></section>
 
