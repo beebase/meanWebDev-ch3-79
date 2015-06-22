@@ -3,7 +3,8 @@ var mainApplicationModule = angular.module(mainApplicationModuleName, [
   'ngResource',
   'ngRoute',
   'users',
-  'example'
+  'example',
+  'articles'
 ]);
 
 mainApplicationModule.config(function($locationProvider) {
