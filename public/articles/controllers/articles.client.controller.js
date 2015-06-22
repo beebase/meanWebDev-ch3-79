@@ -1,4 +1,5 @@
-angular.module('articles').controller('ArticlesController',
+angular.module('articles')
+  .controller('ArticlesController',
   function($scope, $routeParams, $location, Authentication, Articles) {
     $scope.authentication = Authentication;
 
@@ -15,5 +16,16 @@ angular.module('articles').controller('ArticlesController',
         function(errorResponse) {
           $scope.error = errorResponse.data.message;
         });
-    }
+    };
+
+    $scope.find = function() {
+      $scope.articles = Articles.query();
+    };
+
+    $scope.findOne = function() {
+      $scope.article = Articles.get({
+        articleId: $routeParams.articleId
+      });
+    };
+
   });
