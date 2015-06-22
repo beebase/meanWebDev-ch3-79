@@ -1,6 +1,9 @@
 var mainApplicationModuleName = 'mean';
 var mainApplicationModule = angular.module(mainApplicationModuleName, [
-  'ngRoute', 'users', 'example'
+  'ngResource',
+  'ngRoute',
+  'users',
+  'example'
 ]);
 
 mainApplicationModule.config(function($locationProvider) {
@@ -8,8 +11,9 @@ mainApplicationModule.config(function($locationProvider) {
 });
 
 // hack fix for facebook bug
-if (window.location.hash === '#_=_') window.location.hash = '#!';
-
+if (window.location.hash === '#_=_') {
+  window.location.hash = '#!';
+}
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, [mainApplicationModuleName]);
